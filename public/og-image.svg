@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0e0c"/>
+  <path d="M72 74H1128" stroke="#314536"/>
+  <g transform="translate(65 108) scale(1.7)" fill="#77e7a5"><path d="M4 31V7l10 8v16L4 23m12 8V15L26 7v24l-10-8m12 8V7l8 6v24l-8-6"/></g>
+  <text x="153" y="160" fill="#eaf1e9" font-family="Arial,sans-serif" font-size="31" font-weight="bold" letter-spacing="2">MINAH TECH</text>
+  <text x="71" y="292" fill="#f3f5f1" font-family="Arial,sans-serif" font-size="81" letter-spacing="-4">Digital craft.</text>
+  <text x="71" y="392" fill="#77e7a5" font-family="Arial,sans-serif" font-size="81" letter-spacing="-4">Real business.</text>
+  <text x="76" y="469" fill="#a2aba5" font-family="Arial,sans-serif" font-size="21">Building digital experiences that move businesses forward.</text>
+  <path d="M72 536H1128" stroke="#314536"/>
+  <text x="76" y="575" fill="#9cac9e" font-family="Arial,sans-serif" font-size="15" letter-spacing="2">SELECTED WORK / SOFTWARE DEVELOPMENT / DIGITAL SOLUTIONS</text>
+  <g transform="translate(914 196) scale(5.2)" fill="#77e7a5"><path d="M4 31V7l10 8v16L4 23m12 8V15L26 7v24l-10-8m12 8V7l8 6v24l-8-6"/></g>
+</svg>
