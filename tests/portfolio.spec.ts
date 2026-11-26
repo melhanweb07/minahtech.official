@@ -27,7 +27,7 @@ async function revealPage(page: Page) {
   await page.waitForTimeout(150);
 }
 
-test("shows only six supplied projects and filters the work", async ({
+test("shows the supplied projects and filters the work", async ({
   page,
 }) => {
   const errors: string[] = [];
@@ -36,7 +36,7 @@ test("shows only six supplied projects and filters the work", async ({
   await expect(
     page.getByRole("heading", { name: "Ideas Into Impact." }),
   ).toBeVisible();
-  await expect(page.locator(".project-card")).toHaveCount(6);
+  await expect(page.locator(".project-card")).toHaveCount(8);
   await page.getByRole("button", { name: "Websites", exact: true }).click();
   await expect(page.locator(".project-card")).toHaveCount(4);
   await expect(
@@ -45,17 +45,23 @@ test("shows only six supplied projects and filters the work", async ({
   await page
     .getByRole("button", { name: "Web Applications", exact: true })
     .click();
-  await expect(page.locator(".project-card")).toHaveCount(1);
-  await expect(page.locator(".project-card")).toContainText(
-    "Sahara Enterprises Billing System",
-  );
+  await expect(page.locator(".project-card")).toHaveCount(3);
+  await expect(page.locator(".project-card").filter({
+    hasText: "Sahara Enterprises Billing System",
+  })).toHaveCount(1);
+  await expect(page.locator(".project-card").filter({
+    hasText: "Nadeem Beef Center",
+  })).toHaveCount(1);
+  await expect(page.locator(".project-card").filter({
+    hasText: "PressPilot",
+  })).toHaveCount(1);
   await page.getByRole("button", { name: "E-commerce", exact: true }).click();
   await expect(page.locator(".project-card")).toHaveCount(1);
   await expect(page.locator(".project-card")).toContainText(
     "Swag Shopping Mall",
   );
   await page.getByRole("button", { name: /All Work/ }).click();
-  await expect(page.locator(".project-card")).toHaveCount(6);
+  await expect(page.locator(".project-card")).toHaveCount(8);
   expect(errors).toEqual([]);
 });
 
@@ -132,7 +138,11 @@ test("navigation, service details, and contact links work", async ({
     .getByRole("navigation", { name: "Main navigation" })
     .getByRole("link", { name: "Testimonials" })
     .click();
-  await expect(page.getByText("Real people. Honest feedback.")).toBeVisible();
+  await expect(
+    page
+      .getByRole("region", { name: "Trusted by Businesses" })
+      .getByText("Nadeem Beef Center", { exact: true }),
+  ).toBeVisible();
   await page
     .getByRole("link", { name: "Back to top of selected work", exact: true })
     .click();

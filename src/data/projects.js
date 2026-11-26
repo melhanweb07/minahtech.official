@@ -1,6 +1,41 @@
 /** @type {import('./types').Project[]} */
 export const projects = [
   {
+    id: "nadeem-beef-center",
+    name: "Nadeem Beef Center",
+    client: "Nadeem Beef Center",
+    category: "Mobile Application",
+    filter: "Web Applications",
+    description:
+      "A mobile application for ordering beef across Ambur, developed for Nadeem Beef Center (NBC) and deployed on the Google Play Store.",
+    technologies: [],
+    url: "",
+    image: "/images/corporate.webp",
+    imageSmall: "/images/corporate-small.webp",
+    imageAlt:
+      "Illustrative cover: contemporary architecture. Not a screenshot or representation of Nadeem Beef Center.",
+    imageType: "placeholder",
+    theme: "forest",
+    completed: true,
+  },
+  {
+    id: "presspilot",
+    name: "PressPilot",
+    client: "MINAH TECH",
+    category: "Restaurant & Juice Shop SaaS",
+    filter: "Web Applications",
+    description:
+      "A restaurant and juice shop management SaaS that helps shop owners organize operations in one place.",
+    technologies: [],
+    url: "https://press-pilot-one.vercel.app/",
+    image: "/images/presspilot.webp",
+    imageSmall: "/images/presspilot-small.webp",
+    imageAlt: "Authentic screenshot of the PressPilot management platform",
+    imageType: "screenshot",
+    theme: "sage",
+    completed: true,
+  },
+  {
     id: "swag-shopping-mall",
     name: "Swag Shopping Mall",
     client: "Swag Shopping Mall",
