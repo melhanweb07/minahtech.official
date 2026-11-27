@@ -134,6 +134,7 @@ test("navigation, service details, and contact links work", async ({
   await expect(page.locator(".contact-form-wrap")).toHaveCount(0);
   await expect(page.getByRole("link", { name: "minahtech26@gmail.com" })).toBeVisible();
   await expect(page.getByRole("link", { name: "+91 9600159063" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "MINAH TECH social media" }).getByRole("link")).toHaveCount(4);
   await page
     .getByRole("navigation", { name: "Main navigation" })
     .getByRole("link", { name: "Testimonials" })
@@ -382,6 +383,24 @@ test("mobile menu, responsive layouts, and direct contact links work", async ({
       )
       .toBe(true);
   }
+  const socialProfiles = [
+    [
+      "Instagram",
+      "https://www.instagram.com/minahtech.official?dmpr=MWFpMXYybHpoc3dmeA==",
+    ],
+    ["LinkedIn", "https://www.linkedin.com/company/minah-tech/"],
+    ["YouTube", "https://youtube.com/@minah-tech?si=THcY70LoinG7ILnL"],
+    ["Facebook", "https://www.facebook.com/share/1Mg8RcpeRi/"],
+  ];
+  for (const [name, url] of socialProfiles) {
+    const profileLink = page.getByRole("link", { name, exact: true });
+    await expect(profileLink).toHaveAttribute("href", url);
+    await expect(profileLink.locator("svg.social-mark")).toHaveCount(1);
+  }
+  await expect(page.locator(".social-unavailable")).toContainText("GitHub");
+  await expect(
+    page.locator(".social-unavailable svg.social-mark"),
+  ).toHaveCount(1);
 });
 
 test("page has no detectable WCAG A/AA violations and all local images load", async ({

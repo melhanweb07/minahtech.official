@@ -3,6 +3,7 @@ import { company } from "../data/company";
 import { projects } from "../data/projects";
 import { Reveal } from "../components/Motion";
 import ContactForm from "../components/ContactForm";
+import SocialMark from "../components/SocialMark";
 
 const showContactForm = false;
 
@@ -52,6 +53,22 @@ export default function Contact({
               <ArrowUpRight size={16} />
             </a>
           </div>
+          <nav className="contact-social" aria-label="MINAH TECH social media">
+            {company.socials
+              .filter((social) => social.url)
+              .map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${social.name} profile`}
+                  title={social.name}
+                >
+                  <SocialMark name={social.name} />
+                </a>
+              ))}
+          </nav>
           <div className="founder-signature">
             <span className="founder-monogram" aria-hidden="true">
               {company.founder
@@ -78,7 +95,10 @@ export default function Contact({
           >
             <div className="contact-gallery-ring">
               {projects.map((project) => (
-                <figure className="contact-gallery-card" key={project.id}>
+                <figure
+                  className={`contact-gallery-card contact-gallery-card--${project.imageType} contact-gallery-card--${project.id}`}
+                  key={project.id}
+                >
                   <img
                     src={project.image}
                     alt={project.imageAlt}

@@ -621,6 +621,16 @@ section {
   transition:
     scale 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.project-nadeem-beef-center {
+  background: #ffffff;
+}
+.project-nadeem-beef-center .project-photo {
+  inset: 0;
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(16px, 3vw, 34px);
+  background: #ffffff;
+}
 .theme-sand .project-photo {
   object-position: 48% center;
 }
@@ -1104,6 +1114,41 @@ section {
   background: var(--color-sage);
   border-block: 1px solid var(--color-border);
 }
+.contact-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+.contact-social a {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+.contact-social a:hover {
+  color: #fff;
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+.contact-social a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.contact-social .social-mark {
+  width: 18px;
+  height: 18px;
+}
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.13fr;
@@ -1114,7 +1159,8 @@ section {
   align-items: center;
 }
 .contact-gallery {
-  --gallery-depth: clamp(120px, 13vw, 180px);
+  --gallery-card-width: clamp(118px, 15vw, 190px);
+  --gallery-depth: clamp(132px, 16vw, 205px);
   position: relative;
   width: 100%;
   height: 440px;
@@ -1153,7 +1199,7 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(170px, 19vw, 238px);
+  width: var(--gallery-card-width);
   aspect-ratio: 1.55;
   margin: 0;
   padding: 6px;
@@ -1189,6 +1235,15 @@ section {
   height: 100%;
   border-radius: 4px;
   object-fit: cover;
+}
+.contact-gallery-card--screenshot img {
+  object-fit: contain;
+  background: #f7f9f5;
+}
+.contact-gallery-card--nadeem-beef-center img {
+  object-fit: contain;
+  padding: 8px;
+  background: #ffffff;
 }
 @keyframes contact-gallery-rotate {
   from {
@@ -1492,11 +1547,30 @@ section {
 }
 .footer-social > a {
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: center;
+  min-height: 24px;
+}
+.footer-social > a > span {
+  flex: 1;
+}
+.footer-social .social-mark {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #c5d8ca;
+}
+.footer-social > a:hover .social-mark {
+  color: #9ae0b1;
 }
 .footer-social > .social-unavailable {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: #c5d8ca;
+}
+.footer-social > .social-unavailable .social-mark {
+  opacity: 0.75;
 }
 .footer-social small {
   font-size: 8px;
@@ -2061,11 +2135,9 @@ section {
     gap: 32px;
   }
   .contact-gallery {
-    --gallery-depth: clamp(90px, 24vw, 150px);
+    --gallery-card-width: clamp(140px, 25vw, 190px);
+    --gallery-depth: clamp(154px, 30vw, 215px);
     height: clamp(290px, 62vw, 390px);
-  }
-  .contact-gallery-card {
-    width: clamp(155px, 43vw, 220px);
   }
   .contact-form-wrap {
     padding: 24px;
@@ -2359,11 +2431,9 @@ section {
     gap: 26px;
   }
   .contact-gallery {
-    --gallery-depth: 104px;
+    --gallery-card-width: clamp(112px, 29vw, 158px);
+    --gallery-depth: clamp(120px, 36vw, 170px);
     height: 290px;
-  }
-  .contact-gallery-card {
-    width: 164px;
   }
   .testimonial-carousel {
     padding: 26px 16px 20px;

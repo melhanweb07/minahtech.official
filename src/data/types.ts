@@ -11,7 +11,7 @@ export type Project = {
   image: string;
   imageSmall?: string;
   imageAlt: string;
-  imageType: "screenshot" | "placeholder";
+  imageType: "screenshot" | "placeholder" | "photograph";
   theme: string;
   completed: boolean;
 };

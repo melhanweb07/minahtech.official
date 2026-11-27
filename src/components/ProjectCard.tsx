@@ -34,7 +34,7 @@ export function ProjectVisual({
   return (
     <div
       ref={ref}
-      className={`project-visual theme-${project.theme} ${project.imageType === "screenshot" ? "is-screenshot" : "is-photograph"}`}
+      className={`project-visual project-${project.id} theme-${project.theme} ${project.imageType === "screenshot" ? "is-screenshot" : "is-photograph"}`}
     >
       {failed ? (
         <div className="image-fallback">

@@ -1,6 +1,7 @@
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { company, navigation } from "../data/company";
 import Brand, { BrandMark } from "./Brand";
+import SocialMark from "./SocialMark";
 
 export default function Footer() {
   return (
@@ -30,8 +31,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {social.name}
-                  <ArrowUpRight size={13} />
+                  <SocialMark name={social.name} />
+                  <span>{social.name}</span>
+                  <ArrowUpRight size={13} aria-hidden="true" />
                 </a>
               ) : (
                 <span
@@ -39,12 +41,15 @@ export default function Footer() {
                   className="social-unavailable"
                   title="Profile link not supplied"
                 >
+                  <SocialMark name={social.name} />
                   {social.name}
                 </span>
               ),
             )}
-            {!company.socials.some((social) => social.url) && (
-              <small>Profile links coming soon</small>
+            {company.socials.some(
+              (social) => social.name === "GitHub" && !social.url,
+            ) && (
+              <small>GitHub link coming soon</small>
             )}
           </div>
           <a

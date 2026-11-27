@@ -15,8 +15,13 @@ export const company = {
   formEndpoint: "", // Example: https://formspree.io/f/YOUR_FORM_ID. Empty uses email.
   copyrightYear: 2026,
   socials: [
-    { name: "Instagram", url: "" },
-    { name: "LinkedIn", url: "" },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/minahtech.official?dmpr=MWFpMXYybHpoc3dmeA==",
+    },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/minah-tech/" },
+    { name: "YouTube", url: "https://youtube.com/@minah-tech?si=THcY70LoinG7ILnL" },
+    { name: "Facebook", url: "https://www.facebook.com/share/1Mg8RcpeRi/" },
     { name: "GitHub", url: "" },
   ],
 };
