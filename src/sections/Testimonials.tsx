@@ -30,7 +30,7 @@ export default function Testimonials() {
       aria-labelledby="testimonials-title"
     >
       <SectionHeading
-        number="03"
+        number="04"
         label="RELATIONSHIPS THAT MATTER"
         title="Trusted by Businesses"
         description="Nothing speaks louder than the experience of our clients."

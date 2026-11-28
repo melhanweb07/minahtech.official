@@ -34,7 +34,10 @@ test("shows the supplied projects and filters the work", async ({
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "Ideas Into Impact." }),
+    page.getByRole(
+      "heading",
+      { name: "Driven by Innovation. Dedicated to Your Growth." },
+    ),
   ).toBeVisible();
   await expect(page.locator(".project-card")).toHaveCount(8);
   await page.getByRole("button", { name: "Websites", exact: true }).click();
@@ -62,6 +65,18 @@ test("shows the supplied projects and filters the work", async ({
   );
   await page.getByRole("button", { name: /All Work/ }).click();
   await expect(page.locator(".project-card")).toHaveCount(8);
+  const liveLinks = [
+    ["Al-Wafa Interiors", "https://al-wafa-interior.web.app/"],
+    ["NMF Global Services", "https://nmfglobalservice.com/"],
+    ["Growmore Edtechnologies", "https://growmoretech-a3fb5.web.app/"],
+    ["AIRONIX", "https://aironix-26.web.app/"],
+  ];
+  for (const [name, url] of liveLinks) {
+    const projectCard = page.locator(".project-card").filter({
+      hasText: name,
+    });
+    await expect(projectCard.getByRole("link", { name: `Open ${name} website in a new tab` })).toHaveAttribute("href", url);
+  }
   expect(errors).toEqual([]);
 });
 
@@ -70,7 +85,8 @@ test("project dialogs are keyboard accessible and identify illustrative imagery"
 }) => {
   await page.goto("/");
   const opener = page.getByRole("button", {
-    name: "View Al-Wafa Interiors project details",
+    name: "Al-Wafa Interiors",
+    exact: true,
   });
   await opener.click();
   const dialog = page.getByRole("dialog");
@@ -78,8 +94,9 @@ test("project dialogs are keyboard accessible and identify illustrative imagery"
   await expect(dialog).toContainText(
     "This photograph is an illustrative cover",
   );
-  await expect(dialog).toContainText(
-    "A public website link has not been supplied",
+  await expect(dialog.getByRole("link", { name: "View Live Website" })).toHaveAttribute(
+    "href",
+    "https://al-wafa-interior.web.app/",
   );
   await expect(
     page.getByRole("button", { name: "Close dialog" }),
@@ -129,6 +146,8 @@ test("navigation, service details, and contact links work", async ({
     .getByRole("button", { name: "UI/UX Design", exact: true })
     .click();
   await expect(service).toContainText("Interactive prototypes");
+  await expect(page.locator("#about-title")).toContainText("Built for business.");
+  await expect(page.locator("#about-title")).toContainText("Designed for impact.");
   await service.getByRole("link", { name: "Let's talk about it" }).click();
   await expect(page).toHaveURL(/#contact$/);
   await expect(page.locator(".contact-form-wrap")).toHaveCount(0);

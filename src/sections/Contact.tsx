@@ -23,7 +23,7 @@ export default function Contact({
       >
         <Reveal className="contact-copy">
           <p className="eyebrow">
-            <span className="section-number">04</span> LET'S MAKE IT HAPPEN
+            <span className="section-number">05</span> LET'S MAKE IT HAPPEN
           </p>
           <h2 id="contact-title">
             Have a Project

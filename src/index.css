@@ -371,7 +371,7 @@ section {
   line-height: 1.1;
   letter-spacing: -0.065em;
   margin: 0;
-  white-space: nowrap;
+  white-space: normal;
 }
 .projects-heading-row h1 .accent {
   padding-left: 2px;
@@ -464,16 +464,33 @@ section {
 .project-card {
   grid-column: span 7;
   min-width: 0;
+  position: relative;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border: 1px solid #bfd1c3;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 24px #172d220e;
-  transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+  box-shadow:
+    0 0 0 4px #eef4ee,
+    0 8px 24px #172d220e;
+  transition:
+    box-shadow 0.25s,
+    border-color 0.25s,
+    transform 0.25s;
+}
+.project-card::before {
+  position: absolute;
+  z-index: 3;
+  content: "";
+  inset: 7px;
+  border: 1px solid rgba(36, 107, 69, 0.12);
+  border-radius: 7px;
+  pointer-events: none;
 }
 .project-card:hover {
-  border-color: #b8cbbd;
-  box-shadow: 0 14px 34px #172d2219;
+  border-color: var(--color-secondary);
+  box-shadow:
+    0 0 0 4px #e5f1e7,
+    0 14px 34px #172d2219;
   transform: translateY(-3px);
 }
 .project-card:nth-child(4n + 2),
@@ -628,6 +645,7 @@ section {
   inset: 0;
   height: 100%;
   object-fit: contain;
+  object-position: center;
   padding: clamp(16px, 3vw, 34px);
   background: #ffffff;
 }
@@ -917,6 +935,62 @@ section {
   font-size: 12px;
   line-height: 1.85;
   max-width: 340px;
+}
+.about-section {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: end;
+  gap: 100px;
+}
+.about-heading h2 {
+  max-width: 720px;
+  margin: 22px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.2vw, 76px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+  color: var(--color-heading);
+}
+.about-copy {
+  padding-bottom: 4px;
+}
+.about-copy > p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.85;
+}
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0 26px;
+  padding-block: 18px;
+  border-block: 1px solid var(--color-border);
+}
+.about-values div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.about-values span {
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: 10px;
+}
+.about-values strong {
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 .service-discover {
   display: inline-flex;
@@ -1854,6 +1928,9 @@ section {
   .page-shell {
     width: calc(100% - 72px);
   }
+  .projects-heading-row {
+    display: block;
+  }
   .desktop-nav {
     gap: 25px;
     margin-right: 5px;
@@ -1863,6 +1940,7 @@ section {
   }
   .projects-heading-row h1 {
     font-size: 75px;
+    white-space: normal;
   }
   .projects-grid {
     gap: 42px 23px;
@@ -1905,6 +1983,9 @@ section {
   }
   .contact-information > a {
     font-size: 11px;
+  }
+  .about-grid {
+    gap: 55px;
   }
 }
 
@@ -1996,6 +2077,7 @@ section {
   }
   .projects-heading-row h1 {
     font-size: clamp(59px, 9vw, 78px);
+    white-space: normal;
   }
   .projects-heading-row > p {
     margin-top: 18px;
@@ -2097,6 +2179,17 @@ section {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     margin-top: 36px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 32px;
+  }
+  .about-heading h2 {
+    font-size: 52px;
+  }
+  .about-copy > p {
+    max-width: 560px;
   }
   .service-item:nth-child(n) {
     min-height: 320px;
@@ -2364,6 +2457,22 @@ section {
   }
   .section-number {
     margin-right: 8px;
+  }
+  .about-heading h2 {
+    margin-top: 17px;
+    font-size: 38px;
+  }
+  .about-copy > p {
+    font-size: 13px;
+  }
+  .about-values {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about-values div {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
   }
   .services-grid {
     display: grid;

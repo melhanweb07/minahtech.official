@@ -9,6 +9,7 @@ import {
 import Navbar from "./components/Navbar";
 import Projects from "./sections/Projects";
 import Services from "./sections/Services";
+import About from "./sections/About";
 import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
@@ -37,6 +38,7 @@ export default function App() {
         <main id="main-content" tabIndex={-1}>
           <Projects />
           <Services onDiscuss={(name) => setSelectedService({ name })} />
+          <About />
           <Testimonials />
           <Contact selectedService={selectedService} />
         </main>

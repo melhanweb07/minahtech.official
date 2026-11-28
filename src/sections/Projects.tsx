@@ -30,7 +30,7 @@ export default function Projects() {
         </p>
         <div className="projects-heading-row">
           <h1 id="projects-title">
-            Ideas Into Impact<span className="accent">.</span>
+            Driven by Innovation. Dedicated to Your Growth.
           </h1>
           <p>
             Real projects. Real businesses.
